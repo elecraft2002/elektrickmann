@@ -1,7 +1,6 @@
 import React from "react";
 import { PrismicRichText } from "@prismicio/react";
 import * as prismicH from "@prismicio/helpers";
-import EmbedContainer from "react-oembed-container";
 import { TypeAnimation } from "react-type-animation";
 import styled, { keyframes } from "styled-components";
 import overlay from "../../assets/imgs/overlay.png";

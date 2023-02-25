@@ -1,0 +1,77 @@
+{
+  "id": "concert",
+  "type": "SharedSlice",
+  "name": "Concert",
+  "description": "Concert",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Concert",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "heading2"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Description",
+            "placeholder": "A nice description of your feature"
+          }
+        }
+      },
+      "items": {
+        "concert_name": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Concert Name",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "concert_date": {
+          "type": "Date",
+          "config": {
+            "label": "Concert Date",
+            "placeholder": ""
+          }
+        },
+        "concert_location": {
+          "type": "GeoPoint",
+          "config": {
+            "label": "Concert Location"
+          }
+        },
+        "concert_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Concert Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "concert_order_link": {
+          "type": "Link",
+          "config": {
+            "label": "Concert Order Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
+          }
+        }
+      },
+      "imageUrl": "https://images.prismic.io/slice-machine/621a5ec4-0387-4bc5-9860-2dd46cbc07cd_default_ss.png?auto=compress,format"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "id": "quotes",
+  "label": "Quotes",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "quotes": {
+        "type": "Group",
+        "config": {
+          "label": "Quotes",
+          "fields": {
+            "quote": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Quote",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "heading4"
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    }
+  }
+}

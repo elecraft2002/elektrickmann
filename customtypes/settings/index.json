@@ -1,0 +1,70 @@
+{
+  "id": "settings",
+  "label": "Settings",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "name": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Name",
+          "placeholder": "Name of your blog (e.g. your name)",
+          "allowTargetBlank": false,
+          "single": "heading1"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "profilePicture": {
+        "type": "Image",
+        "config": {
+          "label": "Profile Picture",
+          "constraint": {
+            "width": 2000,
+            "height": 2000
+          },
+          "thumbnails": []
+        }
+      },
+      "socials": {
+        "type": "Group",
+        "config": {
+          "label": "Socials",
+          "fields": {
+            "social_img": {
+              "type": "Image",
+              "config": {
+                "label": "Social Img",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "social_link": {
+              "type": "Link",
+              "config": {
+                "label": "Social Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {}
+        }
+      }
+    }
+  }
+}

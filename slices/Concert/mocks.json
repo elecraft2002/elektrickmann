@@ -1,0 +1,93 @@
+[
+  {
+    "__TYPE__": "SharedSliceContent",
+    "variation": "default",
+    "primary": {
+      "title": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "heading2",
+            "content": {
+              "text": "Circle"
+            }
+          }
+        ]
+      },
+      "description": {
+        "__TYPE__": "StructuredTextContent",
+        "value": [
+          {
+            "type": "paragraph",
+            "content": {
+              "text": "Tempor dolore sint id incididunt occaecat ea est culpa minim adipisicing laborum irure labore. Dolore amet Lorem tempor commodo ex aute aliqua consectetur nisi eiusmod."
+            }
+          }
+        ]
+      }
+    },
+    "items": [
+      {
+        "__TYPE__": "GroupItemContent",
+        "value": [
+          [
+            "concert_name",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Ullamco est minim quis do. Ullamco id dolore deserunt pariatur incididunt ut magna ea."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "concert_date",
+            {
+              "__TYPE__": "FieldContent",
+              "type": "Date",
+              "value": "2017-11-05"
+            }
+          ],
+          [
+            "concert_location",
+            {
+              "position": {
+                "lat": 50.0593325,
+                "lng": 14.1854451
+              },
+              "__TYPE__": "GeoPointContent"
+            }
+          ],
+          [
+            "concert_description",
+            {
+              "__TYPE__": "StructuredTextContent",
+              "value": [
+                {
+                  "type": "paragraph",
+                  "content": {
+                    "text": "Pariatur aliquip officia amet eiusmod dolore qui adipisicing commodo consectetur proident non. Enim est excepteur do sunt labore occaecat proident eu officia proident."
+                  }
+                }
+              ]
+            }
+          ],
+          [
+            "concert_order_link",
+            {
+              "__TYPE__": "LinkContent",
+              "value": {
+                "__TYPE__": "ExternalLink",
+                "url": " "
+              }
+            }
+          ]
+        ]
+      }
+    ]
+  }
+]

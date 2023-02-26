@@ -469,6 +469,42 @@ interface EshopSliceDefaultPrimary {
     title: prismicT.TitleField;
 }
 /**
+ * Item in Eshop → Items
+ *
+ */
+export interface EshopSliceDefaultItem {
+    /**
+     * Product Name field in *Eshop → Items*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: eshop.items[].product_name
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    product_name: prismicT.TitleField;
+    /**
+     * Link To Product field in *Eshop → Items*
+     *
+     * - **Field Type**: Link
+     * - **Placeholder**: *None*
+     * - **API ID Path**: eshop.items[].link_to_product
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    link_to_product: prismicT.LinkField;
+    /**
+     * Product Image field in *Eshop → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: eshop.items[].product_image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    product_image: prismicT.ImageField<never>;
+}
+/**
  * Default variation for Eshop Slice
  *
  * - **API ID**: `default`
@@ -476,7 +512,7 @@ interface EshopSliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type EshopSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<EshopSliceDefaultPrimary>, never>;
+export type EshopSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<EshopSliceDefaultPrimary>, Simplify<EshopSliceDefaultItem>>;
 /**
  * Slice variation for *Eshop*
  *
@@ -792,6 +828,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, EshopSliceDefaultPrimary, EshopSliceDefault, EshopSliceVariation, EshopSlice, HistorySliceDefaultPrimary, HistorySliceDefault, HistorySliceVariation, HistorySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
+        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, EshopSliceDefaultPrimary, EshopSliceDefaultItem, EshopSliceDefault, EshopSliceVariation, EshopSlice, HistorySliceDefaultPrimary, HistorySliceDefault, HistorySliceVariation, HistorySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
     }
 }

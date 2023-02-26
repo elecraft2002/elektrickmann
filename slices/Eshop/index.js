@@ -1,5 +1,28 @@
 import React from "react";
-import { PrismicRichText } from "@prismicio/react";
+import { PrismicLink, PrismicRichText } from "@prismicio/react";
+import styled from "styled-components";
+import { COLOR } from "../../pages/_app";
+import { PrismicNextImage } from "@prismicio/next";
+import Button from "../../components/Button";
+
+const StyledSection = styled.section`
+  color: ${COLOR.light};
+`;
+
+const Item = (props) => {
+  console.log(props);
+  return (
+    <div>
+      <PrismicNextImage field={props?.product_image} />
+      <span>
+        <PrismicRichText field={props?.product_name} />
+      </span>
+      <Button primary>
+        <PrismicLink field={props.link_to_product}>OBJEDNAT</PrismicLink>
+      </Button>
+    </div>
+  );
+};
 
 /**
  * @typedef {import("@prismicio/client").Content.EshopSlice} EshopSlice
@@ -8,30 +31,16 @@ import { PrismicRichText } from "@prismicio/react";
  */
 const Eshop = ({ slice }) => {
   return (
-    <section>
-      <span className="title">
-        {slice.primary.title ? (
-          <PrismicRichText field={slice.primary.title} />
-        ) : (
-          <h2>Template slice, update me!</h2>
-        )}
+    <StyledSection>
+      <span>
+        <PrismicRichText field={slice.primary.title} />
       </span>
-      {slice.primary.description ? (
-        <PrismicRichText field={slice.primary.description} />
-      ) : (
-        <p>start by editing this slice from inside Slice Machine!</p>
-      )}
-      <style jsx>{`
-        section {
-          max-width: 600px;
-          margin: 4em auto;
-          text-align: center;
-        }
-        .title {
-          color: #8592e0;
-        }
-      `}</style>
-    </section>
+      <div>
+        {slice?.items?.map((item, i) => (
+          <Item {...item} />
+        ))}
+      </div>
+    </StyledSection>
   );
 };
 

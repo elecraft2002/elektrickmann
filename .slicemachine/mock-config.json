@@ -153,6 +153,14 @@
               "blocks": 1
             }
           }
+        },
+        "items": {
+          "product_name": {
+            "config": {
+              "patternType": "HEADING",
+              "blocks": 1
+            }
+          }
         }
       }
     },

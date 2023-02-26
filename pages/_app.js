@@ -76,7 +76,6 @@ const richTextComponents = {
   ),
 };
 
-export const Button = styled.button``;
 export const COLOR = {
   dark: "black",
   light: "white",

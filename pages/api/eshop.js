@@ -10,9 +10,7 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   puppeteer = require("puppeteer");
 }
 export default async function handler(req, res) {
-    res
-      .status(200)
-      .json({ text: "Api is working somehow..."});
+  res.status(200).json({ text: "Api is working somehow..." });
   try {
     const browser = await puppeteer.launch({
       args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
@@ -23,7 +21,17 @@ export default async function handler(req, res) {
     });
 
     const page = await browser.newPage();
-
+    page.on("request", (req) => {
+      if (
+        req.resourceType() == "stylesheet" ||
+        req.resourceType() == "font" ||
+        req.resourceType() == "image"
+      ) {
+        req.abort();
+      } else {
+        req.continue();
+      }
+    });
     await page.goto("https://developer.chrome.com/");
 
     // Set screen size

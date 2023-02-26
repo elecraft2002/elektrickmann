@@ -77,9 +77,9 @@ export async function getStaticProps({ previewData }) {
   const page = await client.getByUID("page", "landing");
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-  const response = await fetch(`${process.env.BASE_FETCH_URL}/api/eshop`);
-  const data = await response.json();
-  console.log("Data: ", data);
+  // const response = await fetch(`${process.env.BASE_FETCH_URL}/api/eshop`);
+  // const data = await response.json();
+  // console.log("Data: ", data);
   return {
     props: {
       page,

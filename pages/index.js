@@ -11,6 +11,7 @@ import { Layout } from "../components/Layout";
 import { components } from "../slices";
 import styled from "styled-components";
 import stratches from "../assets/imgs/scratches.jpg";
+import { useEffect, useState } from "react";
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "short",
@@ -20,7 +21,29 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 const StyledSliceContainer = styled.div`
   background: url(${stratches.src});
+  background-size: contain;
+  background-repeat: repeat-y;
 `;
+
+const BackgroundParralax = (props) => {
+  const [offset, setOffset] = useState(0);
+  const handleScroll = () => {
+    setOffset(window.scrollY);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <StyledSliceContainer style={{ backgroundPositionY: offset / 4 }}>
+      {props.children}
+    </StyledSliceContainer>
+  );
+};
 
 const Index = ({ navigation, settings, page }) => {
   console.log(page);
@@ -33,9 +56,9 @@ const Index = ({ navigation, settings, page }) => {
       <Head>
         <title>{prismicH.asText(settings.data.name)}</title>
       </Head>
-      <StyledSliceContainer>
+      <BackgroundParralax>
         <SliceZone slices={page.data.slices} components={components} />
-      </StyledSliceContainer>
+      </BackgroundParralax>
     </Layout>
   );
 };
@@ -54,7 +77,9 @@ export async function getStaticProps({ previewData }) {
   const page = await client.getByUID("page", "landing");
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-
+  const response = await fetch(`http://localhost:3000/api/eshop`);
+  const data = await response.json();
+  console.log("Data: ", data);
   return {
     props: {
       page,

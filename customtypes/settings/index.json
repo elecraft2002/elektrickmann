@@ -31,7 +31,13 @@
             "width": 2000,
             "height": 2000
           },
-          "thumbnails": []
+          "thumbnails": [
+            {
+              "name": "Icon",
+              "width": 32,
+              "height": null
+            }
+          ]
         }
       },
       "socials": {

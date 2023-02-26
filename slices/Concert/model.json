@@ -52,6 +52,14 @@
             "label": "Concert Location"
           }
         },
+        "concert_image": {
+          "type": "Image",
+          "config": {
+            "label": "Concert Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
         "concert_description": {
           "type": "StructuredText",
           "config": {

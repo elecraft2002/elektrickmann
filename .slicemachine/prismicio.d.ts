@@ -147,7 +147,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = ConcertSlice | WelcomeSlice;
+type PageDocumentDataSlicesSlice = ConcertSlice | WelcomeSlice | HistorySlice | EshopSlice;
 /**
  * Page document from Prismic
  *
@@ -248,7 +248,7 @@ interface SettingsDocumentData {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    profilePicture: prismicT.ImageField<never>;
+    profilePicture: prismicT.ImageField<"Icon">;
     /**
      * Socials field in *Settings*
      *
@@ -376,6 +376,16 @@ export interface ConcertSliceDefaultItem {
      */
     concert_location: prismicT.GeoPointField;
     /**
+     * Concert Image field in *Concert → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: concert.items[].concert_image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    concert_image: prismicT.ImageField<never>;
+    /**
      * Concert Description field in *Concert → Items*
      *
      * - **Field Type**: Rich Text
@@ -442,6 +452,94 @@ type ContactFormSliceVariation = ContactFormSliceDefault;
  *
  */
 export type ContactFormSlice = prismicT.SharedSlice<"contact_form", ContactFormSliceVariation>;
+/**
+ * Primary content in Eshop → Primary
+ *
+ */
+interface EshopSliceDefaultPrimary {
+    /**
+     * Title field in *Eshop → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: eshop.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+}
+/**
+ * Default variation for Eshop Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Eshop`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type EshopSliceDefault = prismicT.SharedSliceVariation<"default", Simplify<EshopSliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *Eshop*
+ *
+ */
+type EshopSliceVariation = EshopSliceDefault;
+/**
+ * Eshop Shared Slice
+ *
+ * - **API ID**: `eshop`
+ * - **Description**: `Eshop`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type EshopSlice = prismicT.SharedSlice<"eshop", EshopSliceVariation>;
+/**
+ * Primary content in History → Primary
+ *
+ */
+interface HistorySliceDefaultPrimary {
+    /**
+     * Title field in *History → Primary*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: This is where it all begins...
+     * - **API ID Path**: history.primary.title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *History → Primary*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: A nice description of your feature
+     * - **API ID Path**: history.primary.description
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    description: prismicT.RichTextField;
+}
+/**
+ * Default variation for History Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `History`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HistorySliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HistorySliceDefaultPrimary>, never>;
+/**
+ * Slice variation for *History*
+ *
+ */
+type HistorySliceVariation = HistorySliceDefault;
+/**
+ * History Shared Slice
+ *
+ * - **API ID**: `history`
+ * - **Description**: `History`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type HistorySlice = prismicT.SharedSlice<"history", HistorySliceVariation>;
 /**
  * Primary content in Image → Primary
  *
@@ -639,6 +737,16 @@ interface WelcomeSliceDefaultPrimary {
      *
      */
     background_youtube_video: prismicT.EmbedField;
+    /**
+     * Background Video field in *Welcome → Primary*
+     *
+     * - **Field Type**: Link to Media
+     * - **Placeholder**: *None*
+     * - **API ID Path**: welcome.primary.background_video
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    background_video: prismicT.LinkToMediaField;
 }
 /**
  * Item in Welcome → Items
@@ -684,6 +792,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
+        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, EshopSliceDefaultPrimary, EshopSliceDefault, EshopSliceVariation, EshopSlice, HistorySliceDefaultPrimary, HistorySliceDefault, HistorySliceVariation, HistorySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
     }
 }

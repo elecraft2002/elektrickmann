@@ -2,6 +2,8 @@
 
 import Concert from './Concert';
 import ContactForm from './ContactForm';
+import Eshop from './Eshop';
+import History from './History';
 import Image from './Image';
 import Quote from './Quote';
 import Text from './Text';
@@ -10,6 +12,8 @@ import Welcome from './Welcome';
 export {
 	Concert,
 	ContactForm,
+	Eshop,
+	History,
 	Image,
 	Quote,
 	Text,
@@ -19,6 +23,8 @@ export {
 export const components = {
 	concert: Concert,
 	contact_form: ContactForm,
+	eshop: Eshop,
+	history: History,
 	image: Image,
 	quote: Quote,
 	text: Text,

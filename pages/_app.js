@@ -45,7 +45,7 @@ const richTextComponents = {
     </Heading>
   ),
   heading4: ({ children }) => <StyledHeading1>{children}</StyledHeading1>,
-  paragraph: ({ children }) => <p className="mb-7 last:mb-0">{children}</p>,
+  paragraph: ({ children }) => <p>{children}</p>,
   oList: ({ children }) => (
     <ol className="mb-7 pl-4 last:mb-0 md:pl-6">{children}</ol>
   ),

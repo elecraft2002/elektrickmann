@@ -31,6 +31,12 @@
             },
             "welcome": {
               "type": "SharedSlice"
+            },
+            "history": {
+              "type": "SharedSlice"
+            },
+            "eshop": {
+              "type": "SharedSlice"
             }
           }
         }

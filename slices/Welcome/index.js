@@ -80,7 +80,7 @@ const StyledTypeAnimation = styled.span`
   }
 `;
 const Welcome = ({ slice }) => {
-  console.log(slice.primary.background_youtube_video.thumbnail_url);
+  console.log(slice.primary.background_video);
   const url = `https://www.youtube.com/embed/${slice.primary.background_youtube_video.embed_url
     .match("=.*$")[0]
     .replace(
@@ -102,6 +102,7 @@ const Welcome = ({ slice }) => {
           controls="0"
           showinfo="0"
         />
+        {/* <video src={slice.primary.background_video.url} autoPlay></video> */}
         <StyledVideoOverlay />
       </StyledBackgroundLoadingImage>
       <StyledLandingContainer>

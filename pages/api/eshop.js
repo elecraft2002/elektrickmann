@@ -10,6 +10,9 @@ if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
   puppeteer = require("puppeteer");
 }
 export default async function handler(req, res) {
+    res
+      .status(200)
+      .json({ text: "Api is working somehow..."});
   try {
     const browser = await puppeteer.launch({
       args: [...chrome.args, "--hide-scrollbars", "--disable-web-security"],
@@ -24,9 +27,6 @@ export default async function handler(req, res) {
     await page.goto("https://developer.chrome.com/");
 
     // Set screen size
-    await page.setViewport({ width: 1080, height: 1024 });
-
-    // Type into search box
     await page.type(".search-box__input", "automate beyond recorder");
 
     // Wait and click on first result

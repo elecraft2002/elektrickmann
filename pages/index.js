@@ -46,7 +46,6 @@ const BackgroundParralax = (props) => {
 };
 
 const Index = ({ navigation, settings, page }) => {
-  console.log(page);
   return (
     <Layout
       withHeaderDivider={false}
@@ -74,10 +73,11 @@ export async function getStaticProps({ previewData }) {
   //     { field: "document.first_publication_date", direction: "desc" },
   //   ],
   // });
+  
   const page = await client.getByUID("page", "landing");
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");
-  const response = await fetch(`http://localhost:3000/api/eshop`);
+  const response = await fetch(`${process.env.BASE_FETCH_URL}/api/eshop`);
   const data = await response.json();
   console.log("Data: ", data);
   return {

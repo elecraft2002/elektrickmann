@@ -65,7 +65,6 @@ const StyledImg = styled(PrismicNextImage)`
 
 const ConcertSection = ({ setActiveIndex, activeIndex, concert, index }) => {
   const date = prismicH.asDate(concert.concert_date);
-  console.log(concert);
   return (
     <StyledLi>
       <article>

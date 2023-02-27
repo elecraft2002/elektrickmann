@@ -20,7 +20,8 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 });
 
 const StyledSliceContainer = styled.div`
-  background: url(${stratches.src});
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(${stratches.src});
   background-size: contain;
   background-repeat: repeat-y;
 `;
@@ -73,7 +74,7 @@ export async function getStaticProps({ previewData }) {
   //     { field: "document.first_publication_date", direction: "desc" },
   //   ],
   // });
-  
+
   const page = await client.getByUID("page", "landing");
   const navigation = await client.getSingle("navigation");
   const settings = await client.getSingle("settings");

@@ -7,7 +7,7 @@ import { components } from "../../slices";
 import { Layout } from "../../components/Layout";
 import styled from "styled-components";
 import stratches from "../../assets/imgs/scratches.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const StyledSliceContainer = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),

@@ -10,7 +10,7 @@ const StyledSection = styled.section`
   color: ${COLOR.light};
   display: flex;
   flex-direction: column;
-  min-height:100vh;
+  min-height: 100vh;
 `;
 
 const StyledItemList = styled.ul`
@@ -33,17 +33,18 @@ const StledImage = styled(PrismicNextImage)`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 4px;
 `;
 const StyledText = styled.span`
-font-weight:500 ;
-`
+  font-weight: 500;
+`;
 const Item = (props) => {
   console.log(props);
   return (
     <Fade>
       <StyledItemContainer>
         <fugure>
-          <PrismicNextImage field={props?.product_image} />
+          <StledImage field={props?.product_image} />
         </fugure>
         <StyledText>
           <PrismicRichText field={props?.product_name} />

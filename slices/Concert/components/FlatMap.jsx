@@ -34,8 +34,9 @@ const StyledMarker = styled.span`
   aspect-ratio: 1;
   background: ${COLOR.light};
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(.3);
+  transform: translate(-50%, -50%) scale(0.3);
   top: 0;
+  transition: 0.5s;
   position: absolute;
   ${(props) =>
     props.active &&
@@ -74,7 +75,7 @@ export default function FlatMap({ locations, index }) {
                 top: normalized.latitude + "%",
               }}
               key={i}
-              active={i == index}
+              active={i == index || index == null}
             ></StyledMarker>
           );
         })}

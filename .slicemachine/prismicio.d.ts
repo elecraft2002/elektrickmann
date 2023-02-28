@@ -542,16 +542,52 @@ interface HistorySliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
+}
+/**
+ * Item in History → Items
+ *
+ */
+export interface HistorySliceDefaultItem {
     /**
-     * Description field in *History → Primary*
+     * Date field in *History → Items*
+     *
+     * - **Field Type**: Date
+     * - **Placeholder**: *None*
+     * - **API ID Path**: history.items[].date
+     * - **Documentation**: https://prismic.io/docs/core-concepts/date
+     *
+     */
+    date: prismicT.DateField;
+    /**
+     * Title field in *History → Items*
+     *
+     * - **Field Type**: Title
+     * - **Placeholder**: *None*
+     * - **API ID Path**: history.items[].title
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    title: prismicT.TitleField;
+    /**
+     * Description field in *History → Items*
      *
      * - **Field Type**: Rich Text
-     * - **Placeholder**: A nice description of your feature
-     * - **API ID Path**: history.primary.description
+     * - **Placeholder**: *None*
+     * - **API ID Path**: history.items[].description
      * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
      *
      */
     description: prismicT.RichTextField;
+    /**
+     * Image field in *History → Items*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: history.items[].image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
 }
 /**
  * Default variation for History Slice
@@ -561,7 +597,7 @@ interface HistorySliceDefaultPrimary {
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type HistorySliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HistorySliceDefaultPrimary>, never>;
+export type HistorySliceDefault = prismicT.SharedSliceVariation<"default", Simplify<HistorySliceDefaultPrimary>, Simplify<HistorySliceDefaultItem>>;
 /**
  * Slice variation for *History*
  *
@@ -828,6 +864,6 @@ declare module "@prismicio/client" {
         (repositoryNameOrEndpoint: string, options?: prismic.ClientConfig): prismic.Client<AllDocumentTypes>;
     }
     namespace Content {
-        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, EshopSliceDefaultPrimary, EshopSliceDefaultItem, EshopSliceDefault, EshopSliceVariation, EshopSlice, HistorySliceDefaultPrimary, HistorySliceDefault, HistorySliceVariation, HistorySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
+        export type { ArticleDocumentData, ArticleDocumentDataSlicesSlice, ArticleDocument, NavigationDocumentData, NavigationDocumentDataLinksItem, NavigationDocument, PageDocumentData, PageDocumentDataSlicesSlice, PageDocument, QuotesDocumentData, QuotesDocumentDataQuotesItem, QuotesDocumentDataSlicesSlice, QuotesDocument, SettingsDocumentData, SettingsDocumentDataSocialsItem, SettingsDocumentDataSlicesSlice, SettingsDocument, AllDocumentTypes, ConcertSliceDefaultPrimary, ConcertSliceDefaultItem, ConcertSliceDefault, ConcertSliceVariation, ConcertSlice, ContactFormSliceDefault, ContactFormSliceVariation, ContactFormSlice, EshopSliceDefaultPrimary, EshopSliceDefaultItem, EshopSliceDefault, EshopSliceVariation, EshopSlice, HistorySliceDefaultPrimary, HistorySliceDefaultItem, HistorySliceDefault, HistorySliceVariation, HistorySlice, ImageSliceDefaultPrimary, ImageSliceDefault, ImageSliceWidePrimary, ImageSliceWide, ImageSliceVariation, ImageSlice, QuoteSliceDefaultPrimary, QuoteSliceDefault, QuoteSliceVariation, QuoteSlice, TextSliceDefaultPrimary, TextSliceDefault, TextSliceVariation, TextSlice, WelcomeSliceDefaultPrimary, WelcomeSliceDefaultItem, WelcomeSliceDefault, WelcomeSliceVariation, WelcomeSlice };
     }
 }

@@ -47,7 +47,6 @@ const BackgroundParralax = (props) => {
 };
 
 const Index = ({ navigation, settings, page }) => {
-  console.log(settings);
   return (
     <Layout
       withHeaderDivider={false}

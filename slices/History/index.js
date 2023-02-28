@@ -192,8 +192,9 @@ const History = ({ slice }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // console.log(slice);
+  slice.items.sort((a, b) => {
+    return prismicH.asDate(b.date) - prismicH.asDate(a.date);
+  });
   return (
     <StyledSection id="history">
       {/* <YearLine year={date} /> */}

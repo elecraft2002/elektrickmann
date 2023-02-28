@@ -118,7 +118,7 @@ const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
         (ref.current.getClientRects()[0].top +
           ref.current.getClientRects()[0].bottom) /
         2;
-      // console.log(newArray);
+      // 
       return newArray;
     });
   }, [offset]);

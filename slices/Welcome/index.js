@@ -92,13 +92,6 @@ const StylecScrollContainer = styled.span`
   top: calc(100% - 4rem);
 `;
 const Welcome = ({ slice }) => {
-  console.log(slice.primary.background_video);
-  const url = `https://www.youtube.com/embed/${slice.primary.background_youtube_video.embed_url
-    .match("=.*$")[0]
-    .replace(
-      "=",
-      ""
-    )}?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=0&autoplay=1&loop=1`;
   return (
     <StyledLanding>
       <StyledVideo

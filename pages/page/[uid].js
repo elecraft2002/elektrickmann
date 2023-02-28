@@ -78,10 +78,6 @@ export async function getStaticPaths() {
   const client = createClient();
 
   const articles = await client.getAllByType("page");
-  console.log(
-    "Paths: ",
-    articles.map((article) => prismicH.asLink(article))
-  );
   return {
     paths: articles.map((article) => prismicH.asLink(article)),
     fallback: false,

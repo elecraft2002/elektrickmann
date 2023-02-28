@@ -39,7 +39,7 @@ const StyledText = styled.span`
   font-weight: 500;
 `;
 const Item = (props) => {
-  console.log(props);
+  
   return (
     <Fade>
       <StyledItemContainer>

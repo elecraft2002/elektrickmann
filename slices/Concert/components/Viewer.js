@@ -4,7 +4,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stage } from '@react-three/drei'
 import { Model } from './Model'
 export default function Viewer({ locations, index }) {
-  console.log(locations)
+  
   const ref = useRef()
   return (
     <Canvas shadows dpr={[1, 2]} camera={{ fov: 50 }}>

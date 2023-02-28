@@ -55,11 +55,11 @@ const StyledLi = styled.li``;
 const StyledInfo = styled.div`
   display: grid;
   grid-template-columns: 40% auto;
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
 `;
 const StyledImg = styled(PrismicNextImage)`
-  margin: 1rem 0 1rem 1rem;
+  margin: 1rem;
 `;
 /**
  * @typedef {import("@prismicio/client").Content.ConcertSlice} ConcertSlice

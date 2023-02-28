@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { PrismicRichText } from "@prismicio/react";
-import styled from "styled-components";
+import styled, { keyframes, css } from "styled-components";
 import { COLOR } from "../../pages/_app";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
@@ -9,7 +9,6 @@ const StyledSection = styled.section`
   color: ${COLOR.light};
   display: flex;
   flex-direction: column;
-  overflow-y: hidden;
 `;
 
 const StyledLineContainer = styled.div`
@@ -25,35 +24,69 @@ const StyledLine = styled.span`
   border-right: 1px solid ${COLOR.light};
 `;
 const StyledYear = styled.span`
-  position: absolute;
-  transform: translateX(-50%);
+  position: sticky;
+  transform: translateX(calc(50vw - 50%));
   width: 80px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid ${COLOR.light};
   background: ${COLOR.dark};
   top: 30vh;
+  left: 50vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+`;
+const blink = keyframes`
+0%{transform:scale(1)}
+50%{transform:scale(1.2)}
+100%{transform:scale(1)}
+`;
+const StyledTime = styled.time`
+  animation: ${blink};
+  animation-duration: 1s;
+`;
+
+const StyledList = styled.ul`
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    border-left: 1px solid ${COLOR.light};
+    border-right: 1px solid ${COLOR.light};
+  }
+`;
+const StyledDateContainer = styled.div`
+  position: absolute;
+  height: 100%;
+  top: 0;
+  width: 0;
 `;
 /**
  * @typedef {import("@prismicio/client").Content.HistorySlice} HistorySlice
  * @typedef {import("@prismicio/react").SliceComponentProps<HistorySlice>} HistoryProps
  * @param { HistoryProps }
  */
-
-const YearLine = ({ year }) => {
-  return (
-    <StyledLineContainer>
-      <StyledLine></StyledLine>
-      <StyledYear>
-        <time>{year}</time>
-      </StyledYear>
-    </StyledLineContainer>
-  );
-};
-
+const StyledItemContainer = styled.li`
+  display: grid;
+  ${(props) =>
+    props.reverse &&
+    css`
+      direction: rtl;
+    `};
+  grid-template-columns: 1fr 1fr;
+  align-items:center;
+  min-height:50vh;
+  max-width:1200px;
+  padding:1rem;
+  gap:10rem;
+  margin:auto;
+`;
 const Item = ({ index, item, setOffsetArray, offset }) => {
   const date = prismicH.asDate(item.date);
   const ref = useRef(null);
@@ -66,11 +99,10 @@ const Item = ({ index, item, setOffsetArray, offset }) => {
         2;
       // console.log(newArray);
       return newArray;
-      return [...newArray];
     });
   }, [offset]);
   return (
-    <li ref={ref}>
+    <StyledItemContainer reverse={index % 2} ref={ref}>
       <div>
         {date && (
           <time dateTime={date}>
@@ -86,7 +118,7 @@ const Item = ({ index, item, setOffsetArray, offset }) => {
         <PrismicNextImage field={item.image} />
         {item.image.alt && <figcaption>{item.image.alt}</figcaption>}
       </figure>
-    </li>
+    </StyledItemContainer>
   );
 };
 const closestIndex = (num, arr) => {
@@ -140,11 +172,16 @@ const History = ({ slice }) => {
   // console.log(slice);
   return (
     <StyledSection>
-      <YearLine year={date} />
+      {/* <YearLine year={date} /> */}
       <span className="title">
         {slice.primary.title && <PrismicRichText field={slice.primary.title} />}
       </span>
-      <ul>
+      <StyledList>
+        <StyledDateContainer>
+          <StyledYear>
+            <StyledTime key={date}>{date}</StyledTime>
+          </StyledYear>
+        </StyledDateContainer>
         {slice.items.map((item, i) => {
           return (
             <Item
@@ -156,7 +193,7 @@ const History = ({ slice }) => {
             />
           );
         })}
-      </ul>
+      </StyledList>
     </StyledSection>
   );
 };

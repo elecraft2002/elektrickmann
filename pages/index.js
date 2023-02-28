@@ -47,6 +47,7 @@ const BackgroundParralax = (props) => {
 };
 
 const Index = ({ navigation, settings, page }) => {
+  console.log(settings);
   return (
     <Layout
       withHeaderDivider={false}
@@ -55,6 +56,11 @@ const Index = ({ navigation, settings, page }) => {
     >
       <Head>
         <title>{prismicH.asText(settings.data.name)}</title>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href={settings.data.profilePicture.Icon.url}
+        ></link>
       </Head>
       <BackgroundParralax>
         <SliceZone slices={page.data.slices} components={components} />

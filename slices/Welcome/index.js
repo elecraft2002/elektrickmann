@@ -5,6 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 import styled, { keyframes } from "styled-components";
 import overlay from "../../assets/imgs/overlay.png";
 import { COLOR } from "../../pages/_app";
+import ScrollIcon from "../../assets/svgs/ScrollIcon";
 /**
  * @typedef {import("@prismicio/client").Content.WelcomeSlice} WelcomeSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<WelcomeSlice>} WelcomeProps
@@ -85,6 +86,11 @@ const StyledVideo = styled.video`
   height: 100vh;
   object-fit: cover;
 `;
+const StylecScrollContainer = styled.span`
+  position: absolute;
+  left: 50vw;
+  top: calc(100% - 4rem);
+`;
 const Welcome = ({ slice }) => {
   console.log(slice.primary.background_video);
   const url = `https://www.youtube.com/embed/${slice.primary.background_youtube_video.embed_url
@@ -116,6 +122,9 @@ const Welcome = ({ slice }) => {
           />
         </StyledTypeAnimation>
       </StyledLandingContainer>
+      <StylecScrollContainer>
+        <ScrollIcon />
+      </StylecScrollContainer>
     </StyledLanding>
   );
 };

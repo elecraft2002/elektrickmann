@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PrismicImage, PrismicLink, PrismicRichText } from "@prismicio/react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import FlatMap from "./components/FlatMap";
 import * as prismicH from "@prismicio/helpers";
 import { COLOR } from "../../pages/_app";
@@ -25,7 +25,7 @@ const StyledContainer = styled.div`
   gap: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  @media (max-width: 500px) {
+  @media (max-width: 700px) {
     gap: 4rem;
     display: flex;
     flex-direction: column-reverse;
@@ -44,6 +44,9 @@ const StyledLine = styled.div`
   border-bottom: solid 1px ${COLOR.light};
   padding: 0 0.5rem;
   font-size: 1.2rem;
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
@@ -63,12 +66,21 @@ const StyledImg = styled(PrismicNextImage)`
  * @typedef {import("@prismicio/react").SliceComponentProps<ConcertSlice>} ConcertProps
  * @param { ConcertProps }
  */
+const StyledArticleContainer = styled.article`
+  border-radius: 4px;
+  ${(props) =>
+    props.active &&
+    css`
+      background: rgba(255, 255, 255, 0.1);
+      border:1px solid ${COLOR.light};
+    `}
+`;
 
 const ConcertSection = ({ setActiveIndex, activeIndex, concert, index }) => {
   const date = prismicH.asDate(concert.concert_date);
   return (
     <StyledLi>
-      <article>
+      <StyledArticleContainer active={index == activeIndex}>
         <StyledLine
           onClick={() => {
             index == activeIndex ? setActiveIndex(null) : setActiveIndex(index);
@@ -92,7 +104,7 @@ const ConcertSection = ({ setActiveIndex, activeIndex, concert, index }) => {
             </span>
           </StyledInfo>
         )}
-      </article>
+      </StyledArticleContainer>
     </StyledLi>
   );
 };

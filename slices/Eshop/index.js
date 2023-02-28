@@ -34,7 +34,9 @@ const StledImage = styled(PrismicNextImage)`
   height: 100%;
   object-fit: contain;
 `;
-
+const StyledText = styled.span`
+font-weight:500 ;
+`
 const Item = (props) => {
   console.log(props);
   return (
@@ -43,9 +45,9 @@ const Item = (props) => {
         <fugure>
           <PrismicNextImage field={props?.product_image} />
         </fugure>
-        <span>
+        <StyledText>
           <PrismicRichText field={props?.product_name} />
-        </span>
+        </StyledText>
         <Button primary>
           <PrismicLink field={props.link_to_product}>OBJEDNAT</PrismicLink>
         </Button>

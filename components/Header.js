@@ -7,43 +7,6 @@ import styled from "styled-components";
 import { COLOR } from "../pages/_app";
 import { useEffect, useState } from "react";
 import buttonImg from "../assets/imgs/E.png";
-const Profile = ({ name, description, profilePicture }) => {
-  return (
-    <div className="px-4">
-      <div className="grid max-w-lg grid-cols-1 justify-items-center gap-8">
-        <PrismicLink href="/" tabIndex="-1">
-          <div className="rounded-fStyledListl relative h-40 w-40 overflow-hidden bg-slate-300">
-            {prismicH.isFilled.image(profilePicture) && (
-              <PrismicNextImage
-                field={profilePicture}
-                fill={true}
-                className="object-cover"
-              />
-            )}
-          </div>
-        </PrismicLink>
-        {(prismicH.isFilled.richText(name) ||
-          prismicH.isFilled.richText(description)) && (
-          <div className="grid grid-cols-1 gap-2 text-center">
-            {prismicH.isFilled.richText(name) && (
-              <Heading>
-                <PrismicLink href="/">
-                  <PrismicText field={name} />
-                </PrismicLink>
-              </Heading>
-            )}
-            {prismicH.isFilled.richText(description) && (
-              <p className="font-serif text-2xl italic leading-normal tracking-tight text-slate-500">
-                <PrismicText field={description} />
-              </p>
-            )}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
 const StyledNav = styled.nav`
   display: flex;
   background: ${COLOR.dark};
@@ -79,6 +42,7 @@ const StyledLink = styled(PrismicLink)`
 const StyledImage = styled(PrismicNextImage)`
   width: 100%;
   height: 100%;
+  max-height:48px;
   object-fit: contain;
 `;
 const StyledFigure = styled.figure`
@@ -244,7 +208,7 @@ export const Header = ({
                 return (
                   <StyledLi key={i}>
                     <StyledLink field={social.social_link}>
-                      <StyledImage field={social.social_img} />
+                      <StyledImage  field={social.social_img} />
                     </StyledLink>
                   </StyledLi>
                 );

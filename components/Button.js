@@ -7,7 +7,10 @@ const StyledButton = styled.button`
   border-radius: 3px;
   border: 2px solid ${COLOR.light};
   color: ${COLOR.light};
-  margin: 0.5em .5em;
+  margin: 0.5em 0.5em;
+  @media (max-width: 400px) {
+    margin: 0;
+  }
   padding: 0.25em 1em;
   transition: 0.5s;
   ${(props) =>

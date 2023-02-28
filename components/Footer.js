@@ -25,6 +25,7 @@ const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: auto;
 `;
 const StyledList = styled.ul`
   display: flex;
@@ -44,7 +45,11 @@ export const Footer = ({ settings }) => {
           );
         })}
       </StyledList>
-      <a href="https://www.vojtechsuchanek.cz/cs-cz"  rel="noreferrer" target="_blank">
+      <a
+        href="https://www.vojtechsuchanek.cz/cs-cz"
+        rel="noreferrer"
+        target="_blank"
+      >
         Vojtík Suchánek 2023
       </a>
     </StyledFooter>

@@ -42,7 +42,7 @@ const StyledLink = styled(PrismicLink)`
 const StyledImage = styled(PrismicNextImage)`
   width: 100%;
   height: 100%;
-  max-height:48px;
+  max-height: 48px;
   object-fit: contain;
 `;
 const StyledFigure = styled.figure`
@@ -106,7 +106,7 @@ const StyledMobileAnimationContainer = styled.div`
   );
   z-index: -1;
   transition: 0.5s;
-  width:100vw;
+  width: 100vw;
 `;
 const StyledInvisibleButton = styled.div`
   position: absolute;
@@ -209,7 +209,7 @@ export const Header = ({
                 return (
                   <StyledLi key={i}>
                     <StyledLink field={social.social_link}>
-                      <StyledImage  field={social.social_img} />
+                      <StyledImage field={social.social_img} />
                     </StyledLink>
                   </StyledLi>
                 );

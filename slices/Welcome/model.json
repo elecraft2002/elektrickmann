@@ -19,13 +19,6 @@
             "placeholder": "This is where it all begins..."
           }
         },
-        "background_youtube_video": {
-          "type": "Embed",
-          "config": {
-            "label": "Background YouTube Video",
-            "placeholder": ""
-          }
-        },
         "background_video": {
           "type": "Link",
           "config": {

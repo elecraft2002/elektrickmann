@@ -147,7 +147,7 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = ConcertSlice | WelcomeSlice | HistorySlice | EshopSlice;
+type PageDocumentDataSlicesSlice = ConcertSlice | WelcomeSlice | HistorySlice | EshopSlice | TextSlice;
 /**
  * Page document from Prismic
  *
@@ -799,16 +799,6 @@ interface WelcomeSliceDefaultPrimary {
      *
      */
     title: prismicT.TitleField;
-    /**
-     * Background YouTube Video field in *Welcome → Primary*
-     *
-     * - **Field Type**: Embed
-     * - **Placeholder**: *None*
-     * - **API ID Path**: welcome.primary.background_youtube_video
-     * - **Documentation**: https://prismic.io/docs/core-concepts/embed
-     *
-     */
-    background_youtube_video: prismicT.EmbedField;
     /**
      * Background Video field in *Welcome → Primary*
      *

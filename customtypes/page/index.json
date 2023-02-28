@@ -37,6 +37,9 @@
             },
             "eshop": {
               "type": "SharedSlice"
+            },
+            "text": {
+              "type": "SharedSlice"
             }
           }
         }

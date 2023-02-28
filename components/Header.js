@@ -106,6 +106,7 @@ const StyledMobileAnimationContainer = styled.div`
   );
   z-index: -1;
   transition: 0.5s;
+  width:100vw;
 `;
 const StyledInvisibleButton = styled.div`
   position: absolute;

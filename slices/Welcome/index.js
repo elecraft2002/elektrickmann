@@ -22,25 +22,25 @@ const StyledLanding = styled.section`
   color: ${COLOR.light};
   position: relative;
 `;
-const StyledVideo = styled.iframe`
-  opacity: 0;
-  animation: ${fadeIn};
-  animation-duration: 1s;
-  animation-delay: 3.5s;
-  animation-fill-mode: forwards;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  @media (min-aspect-ratio: 16/9) {
-    height: 56.25vw;
-  }
-  @media (max-aspect-ratio: 16/9) {
-    width: 177.78vh;
-  }
-`;
+// const StyledVideo = styled.iframe`
+//   opacity: 0;
+//   animation: ${fadeIn};
+//   animation-duration: 1s;
+//   animation-delay: 3.5s;
+//   animation-fill-mode: forwards;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   width: 100vw;
+//   height: 100vh;
+//   transform: translate(-50%, -50%);
+//   @media (min-aspect-ratio: 16/9) {
+//     height: 56.25vw;
+//   }
+//   @media (max-aspect-ratio: 16/9) {
+//     width: 177.78vh;
+//   }
+// `;
 
 const StyledVideoOverlay = styled.div`
   position: absolute;
@@ -79,6 +79,12 @@ const StyledTypeAnimation = styled.span`
     font-size: 1.5rem;
   }
 `;
+
+const StyledVideo = styled.video`
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+`;
 const Welcome = ({ slice }) => {
   console.log(slice.primary.background_video);
   const url = `https://www.youtube.com/embed/${slice.primary.background_youtube_video.embed_url
@@ -89,22 +95,14 @@ const Welcome = ({ slice }) => {
     )}?rel=0&modestbranding=1&autohide=1&mute=1&showinfo=0&controls=0&autoplay=1&loop=1`;
   return (
     <StyledLanding>
-      <StyledBackgroundLoadingImage
-        backgroundUlr={slice.primary.background_youtube_video.thumbnail_url}
-      >
-        <StyledVideo
-          src={url}
-          // src={slice.primary.background_youtube_video.embed_url}
-          //https://www.youtube.com/watch?v=D1DBZ5TqURQ
-          //.match("=.*$")[0].replace("=","")
-          frameborder="0"
-          allowfullscreen
-          controls="0"
-          showinfo="0"
-        />
-        {/* <video src={slice.primary.background_video.url} autoPlay></video> */}
-        <StyledVideoOverlay />
-      </StyledBackgroundLoadingImage>
+      <StyledVideo
+        src={slice.primary.background_video.url}
+        autoPlay
+        muted
+        loop
+        type="video/mp4"
+      />
+      <StyledVideoOverlay />
       <StyledLandingContainer>
         <PrismicRichText field={slice.primary.title} />
         <StyledTypeAnimation>

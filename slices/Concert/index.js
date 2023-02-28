@@ -26,6 +26,7 @@ const StyledContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 500px) {
+    gap: 4rem;
     display: flex;
     flex-direction: column-reverse;
   }

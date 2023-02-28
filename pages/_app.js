@@ -31,6 +31,16 @@ const StyledHeading2 = styled.h2`
     font-size: 6rem;
   }
 `;
+const StyledHeading4 = styled.h4`
+  font-size: 2rem;
+  font-family: HauntAOE;
+  @media (min-width: 500px) {
+    font-size: 3rem;
+  }
+  @media (min-width: 1000px) {
+    font-size: 4rem;
+  }
+`;
 const richTextComponents = {
   heading1: ({ children }) => <StyledHeading1>{children}</StyledHeading1>,
   heading2: ({ children }) => (
@@ -44,7 +54,7 @@ const richTextComponents = {
       {children}
     </Heading>
   ),
-  heading4: ({ children }) => <StyledHeading1>{children}</StyledHeading1>,
+  heading4: ({ children }) => <StyledHeading4>{children}</StyledHeading4>,
   paragraph: ({ children }) => <p>{children}</p>,
   oList: ({ children }) => (
     <ol className="mb-7 pl-4 last:mb-0 md:pl-6">{children}</ol>

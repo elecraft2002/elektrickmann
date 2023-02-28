@@ -4,6 +4,7 @@ import styled, { keyframes, css } from "styled-components";
 import { COLOR } from "../../pages/_app";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
+import { Fade } from "react-reveal";
 
 const StyledSection = styled.section`
   color: ${COLOR.light};
@@ -31,7 +32,7 @@ const StyledYear = styled.span`
   border-radius: 50%;
   border: 2px solid ${COLOR.light};
   background: ${COLOR.dark};
-  top: 30vh;
+  top: 40vh;
   left: 50vw;
   display: flex;
   align-items: center;
@@ -50,18 +51,23 @@ const StyledTime = styled.time`
 
 const StyledList = styled.ul`
   position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    height: 100%;
-    border-left: 1px solid ${COLOR.light};
-    border-right: 1px solid ${COLOR.light};
+  @media (min-width: 750px) {
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50vw;
+      top: 0;
+      transform: translateX(-50%);
+      height: 100%;
+      border-left: 1px solid ${COLOR.light};
+      border-right: 1px solid ${COLOR.light};
+    }
   }
 `;
 const StyledDateContainer = styled.div`
+  @media (max-width: 750px) {
+    display: none;
+  }
   position: absolute;
   height: 100%;
   top: 0;
@@ -74,20 +80,35 @@ const StyledDateContainer = styled.div`
  */
 const StyledItemContainer = styled.li`
   display: grid;
+  position: relative;
   ${(props) =>
     props.reverse &&
     css`
       direction: rtl;
     `};
   grid-template-columns: 1fr 1fr;
-  align-items:center;
-  min-height:50vh;
-  max-width:1200px;
-  padding:1rem;
-  gap:10rem;
-  margin:auto;
+  align-items: center;
+  min-height: 50vh;
+  max-width: 1200px;
+  padding: 1rem;
+  gap: 10rem;
+  margin: auto;
+  @media (max-width: 750px) {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    margin: 1rem 0;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 80%;
+      height: 1px;
+      background: ${COLOR.light};
+    }
+  }
 `;
-const Item = ({ index, item, setOffsetArray, offset }) => {
+const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
   const date = prismicH.asDate(item.date);
   const ref = useRef(null);
   useEffect(() => {
@@ -102,23 +123,25 @@ const Item = ({ index, item, setOffsetArray, offset }) => {
     });
   }, [offset]);
   return (
-    <StyledItemContainer reverse={index % 2} ref={ref}>
-      <div>
-        {date && (
-          <time dateTime={date}>
-            {date.getUTCDate()}.{date.getMonth()}.{date.getFullYear()}
-          </time>
-        )}
-        <PrismicRichText field={item.title} />
-        <span>
-          <PrismicRichText field={item.description} />
-        </span>
-      </div>
-      <figure>
-        <PrismicNextImage field={item.image} />
-        {item.image.alt && <figcaption>{item.image.alt}</figcaption>}
-      </figure>
-    </StyledItemContainer>
+    <Fade when={index == activeIndex}>
+      <StyledItemContainer reverse={index % 2} ref={ref}>
+        <div>
+          {date && (
+            <time dateTime={date}>
+              {date.getUTCDate()}.{date.getMonth()}.{date.getFullYear()}
+            </time>
+          )}
+          <PrismicRichText field={item.title} />
+          <span>
+            <PrismicRichText field={item.description} />
+          </span>
+        </div>
+        <figure>
+          <PrismicNextImage field={item.image} />
+          {item.image.alt && <figcaption>{item.image.alt}</figcaption>}
+        </figure>
+      </StyledItemContainer>
+    </Fade>
   );
 };
 const closestIndex = (num, arr) => {
@@ -136,19 +159,19 @@ const closestIndex = (num, arr) => {
   return index;
 };
 const History = ({ slice }) => {
-  const [width, setWidth] = useState(0);
-  const handleResize = () => {
-    setWidth(window.innerWidth);
-  };
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
+  // const handleResize = () => {
+  //   setWidth(window.innerWidth);
+  // };
+  // useEffect(() => {
+  //   handleResize();
+  //   window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
+  const [index, setIndex] = useState(-1);
   const [offset, setOffset] = useState([]);
   const [offsetArray, setOffsetArray] = useState([]);
   const [date, setDate] = useState(
@@ -158,6 +181,7 @@ const History = ({ slice }) => {
   const handleScroll = () => {
     setOffset(window.scrollY);
     const newIndex = closestIndex(window.innerHeight / 2, offsetArray);
+    setIndex(newIndex);
     setDate(prismicH.asDate(slice.items[newIndex].date).getFullYear());
   };
 
@@ -171,7 +195,7 @@ const History = ({ slice }) => {
 
   // console.log(slice);
   return (
-    <StyledSection>
+    <StyledSection id="history">
       {/* <YearLine year={date} /> */}
       <span className="title">
         {slice.primary.title && <PrismicRichText field={slice.primary.title} />}
@@ -187,6 +211,7 @@ const History = ({ slice }) => {
             <Item
               item={item}
               index={i}
+              activeIndex={index}
               setOffsetArray={setOffsetArray}
               key={i}
               offset={offset}

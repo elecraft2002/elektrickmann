@@ -2,7 +2,9 @@
   font-family: "HauntAOE"; /*Can be any text*/
   src: local("HauntAOE"), url("../assets/font/HauntAOE.ttf") format("truetype");
 }
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;700&display=swap');
 body {
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: 'Inconsolata', monospace;
 }

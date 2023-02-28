@@ -4,11 +4,13 @@ import styled from "styled-components";
 import { COLOR } from "../../pages/_app";
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "../../components/Button";
+import { Fade } from "react-reveal";
 
 const StyledSection = styled.section`
   color: ${COLOR.light};
   display: flex;
   flex-direction: column;
+  min-height:100vh;
 `;
 
 const StyledItemList = styled.ul`
@@ -36,17 +38,19 @@ const StledImage = styled(PrismicNextImage)`
 const Item = (props) => {
   console.log(props);
   return (
-    <StyledItemContainer>
-      <fugure>
-        <PrismicNextImage field={props?.product_image} />
-      </fugure>
-      <span>
-        <PrismicRichText field={props?.product_name} />
-      </span>
-      <Button primary>
-        <PrismicLink field={props.link_to_product}>OBJEDNAT</PrismicLink>
-      </Button>
-    </StyledItemContainer>
+    <Fade>
+      <StyledItemContainer>
+        <fugure>
+          <PrismicNextImage field={props?.product_image} />
+        </fugure>
+        <span>
+          <PrismicRichText field={props?.product_name} />
+        </span>
+        <Button primary>
+          <PrismicLink field={props.link_to_product}>OBJEDNAT</PrismicLink>
+        </Button>
+      </StyledItemContainer>
+    </Fade>
   );
 };
 
@@ -57,7 +61,7 @@ const Item = (props) => {
  */
 const Eshop = ({ slice }) => {
   return (
-    <StyledSection>
+    <StyledSection id={"eshop"}>
       <span>
         <PrismicRichText field={slice.primary.title} />
       </span>

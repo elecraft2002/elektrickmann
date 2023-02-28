@@ -79,7 +79,7 @@ export async function getStaticPaths() {
 
   const articles = await client.getAllByType("page");
   return {
-    paths: articles.map((article) => "page" + prismicH.asLink(article)),
+    paths: articles.map((article) => "/page" + prismicH.asLink(article)),
     fallback: false,
   };
 }

@@ -18,6 +18,7 @@ const StyledNav = styled.nav`
   justify-content: center;
   font-family: HauntAOE;
   font-size: 2rem;
+  filter:drop-shadow(0 5px 5px ${COLOR.dark});
 `;
 const StyledNavContainer = styled.div`
   width: 100%;

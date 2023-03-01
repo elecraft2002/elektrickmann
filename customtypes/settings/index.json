@@ -64,6 +64,14 @@
           }
         }
       },
+      "background_audio": {
+        "type": "Link",
+        "config": {
+          "label": "Background Audio",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

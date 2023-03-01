@@ -108,6 +108,11 @@ const StyledItemContainer = styled.li`
     }
   }
 `;
+
+const StyledImageContainer = styled.figure`
+  overflow: hidden;
+  border-radius: 4px;
+`;
 const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
   const date = prismicH.asDate(item.date);
   const ref = useRef(null);
@@ -118,7 +123,7 @@ const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
         (ref.current.getClientRects()[0].top +
           ref.current.getClientRects()[0].bottom) /
         2;
-      // 
+      //
       return newArray;
     });
   }, [offset]);
@@ -136,10 +141,10 @@ const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
             <PrismicRichText field={item.description} />
           </span>
         </div>
-        <figure>
+        <StyledImageContainer>
           <PrismicNextImage field={item.image} />
           {item.image.alt && <figcaption>{item.image.alt}</figcaption>}
-        </figure>
+        </StyledImageContainer>
       </StyledItemContainer>
     </Fade>
   );

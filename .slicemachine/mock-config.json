@@ -33,19 +33,19 @@
       }
     },
     "settings": {
-      "name": {
-        "config": {
-          "patternType": "HEADING",
-          "blocks": 1
-        }
-      },
       "description": {
         "config": {
           "patternType": "PARAGRAPH",
           "blocks": 1
         }
       },
-      "socials": {}
+      "socials": {},
+      "name": {
+        "config": {
+          "patternType": "HEADING",
+          "blocks": 1
+        }
+      }
     },
     "quotes": {
       "quotes": {

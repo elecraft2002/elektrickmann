@@ -261,6 +261,17 @@ interface SettingsDocumentData {
      */
     socials: prismicT.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
     /**
+     * Background Audio field in *Settings*
+     *
+     * - **Field Type**: Link to Media
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.background_audio
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+     *
+     */
+    background_audio: prismicT.LinkToMediaField;
+    /**
      * Slice Zone field in *Settings*
      *
      * - **Field Type**: Slice Zone

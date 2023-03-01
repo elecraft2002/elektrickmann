@@ -2,6 +2,7 @@ import { Header } from "./Header";
 import { Footer } from "./Footer";
 import styled from "styled-components";
 import { COLOR } from "../pages/_app";
+import BackgroundAudio from "./BackgroundAudio";
 const StyledLayout = styled.div`
   color: ${COLOR.light};
   background: ${COLOR.dark};
@@ -26,6 +27,7 @@ export const Layout = ({
         settings={settings}
       />
       <main>{children}</main>
+      <BackgroundAudio settings={settings}/>
       <Footer withSignUpForm={withSignUpForm} settings={settings} />
     </StyledLayout>
   );

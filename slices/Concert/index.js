@@ -39,7 +39,7 @@ const StyledLine = styled.div`
   cursor: pointer;
   grid-template-columns: auto 1fr auto;
   gap: 1rem;
-  transition: 0.1s;
+  transition: 0.3s;
   align-items: center;
   border-bottom: solid 1px ${COLOR.light};
   padding: 0 0.5rem;

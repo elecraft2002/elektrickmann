@@ -62,11 +62,16 @@ const StyledFadeIn = styled.span`
   margin: 0 auto;
   animation-duration: 1s;
   animation-delay: 0.5s;
+  cursor: pointer;
   transform: translateY(25px) translateX(50%);
 `;
 export default function ScrollIcon({ primary = "white", secondary = "black" }) {
   return (
-    <StyledFadeIn>
+    <StyledFadeIn
+      onClick={() => {
+        window.scroll(0, window.innerHeight);
+      }}
+    >
       <StyledScrollIcon
         xmlns="http://www.w3.org/2000/svg"
         width="16"

@@ -18,7 +18,7 @@ const StyledNav = styled.nav`
   justify-content: center;
   font-family: HauntAOE;
   font-size: 2rem;
-  filter:drop-shadow(0 5px 5px ${COLOR.dark});
+  filter: drop-shadow(0 5px 5px ${COLOR.dark});
 `;
 const StyledNavContainer = styled.div`
   width: 100%;
@@ -39,6 +39,9 @@ const StyledLink = styled(PrismicLink)`
   display: flex;
   align-items: center;
   height: 100%;
+`;
+const StyledSocialLink = styled(StyledLink)`
+  padding: 1.5rem 1rem;
 `;
 const StyledImage = styled(PrismicNextImage)`
   width: 100%;
@@ -144,7 +147,7 @@ export const Header = ({
       <header>
         <StyledNav>
           <StyledNavContainer>
-            <StyledLink href={"/"}>
+            <StyledLink href={"/"} scroll={false}>
               <StyledFigure>
                 <StyledImage field={settings.data.profilePicture} />
               </StyledFigure>
@@ -153,7 +156,10 @@ export const Header = ({
               {navigation.data.links.map((link, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink href={prismicH.asText(link.link)}>
+                    <StyledLink
+                      href={prismicH.asText(link.link)}
+                      scroll={false}
+                    >
                       <PrismicRichText field={link.label} />
                     </StyledLink>
                   </StyledLi>
@@ -164,9 +170,9 @@ export const Header = ({
               {settings.data.socials.map((social, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink field={social.social_link}>
+                    <StyledSocialLink field={social.social_link}>
                       <StyledImage field={social.social_img} />
-                    </StyledLink>
+                    </StyledSocialLink>
                   </StyledLi>
                 );
               })}
@@ -180,7 +186,7 @@ export const Header = ({
       <StyledNav>
         <StyledMobileNavContainer>
           <StyledVisibleUi>
-            <StyledLink href={"/"}>
+            <StyledLink href={"/"} scroll={false}>
               <StyledFigure>
                 <StyledImage field={settings.data.profilePicture} />
               </StyledFigure>
@@ -198,7 +204,10 @@ export const Header = ({
               {navigation.data.links.map((link, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink href={prismicH.asText(link.link)}>
+                    <StyledLink
+                      href={prismicH.asText(link.link)}
+                      scroll={false}
+                    >
                       <PrismicRichText field={link.label} />
                     </StyledLink>
                   </StyledLi>
@@ -209,9 +218,9 @@ export const Header = ({
               {settings.data.socials.map((social, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink field={social.social_link}>
+                    <StyledSocialLink field={social.social_link}>
                       <StyledImage field={social.social_img} />
-                    </StyledLink>
+                    </StyledSocialLink>
                   </StyledLi>
                 );
               })}

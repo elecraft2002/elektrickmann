@@ -28,3 +28,6 @@ border-radius: 2px;
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(223, 223, 223); 
 }
+html,:root,body{
+  scroll-behavior: smooth;
+}

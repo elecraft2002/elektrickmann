@@ -126,7 +126,6 @@ const Concert = ({ slice }) => {
         <StyledViewerContainer>
           {slice.primary.title && (
             <Fade bottom>
-              {" "}
               <PrismicRichText field={slice.primary.title} />
             </Fade>
           )}

@@ -204,7 +204,7 @@ export const Header = ({
               {navigation.data.links.map((link, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink
+                    <StyledLink 
                       href={prismicH.asText(link.link)}
                       scroll={false}
                     >

@@ -204,7 +204,7 @@ const History = ({ slice }) => {
     <StyledSection id="history">
       {/* <YearLine year={date} /> */}
       <span className="title">
-        {slice.primary.title && <PrismicRichText field={slice.primary.title} />}
+        {slice.primary.title && <Fade bottom><PrismicRichText field={slice.primary.title} /></Fade>}
       </span>
       <StyledList>
         <StyledDateContainer>

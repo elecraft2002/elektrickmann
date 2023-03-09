@@ -66,7 +66,7 @@ const Eshop = ({ slice }) => {
   return (
     <StyledSection id={"eshop"}>
       <span>
-        <PrismicRichText field={slice.primary.title} />
+       <Fade bottom> <PrismicRichText field={slice.primary.title} /></Fade>
       </span>
       <StyledItemList>
         {slice?.items?.map((item, i) => (

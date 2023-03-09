@@ -37,6 +37,7 @@ const StyledMarker = styled.span`
   transform: translate(-50%, -50%) scale(0.3);
   top: 0;
   transition: 0.5s;
+  cursor: pointer;
   position: absolute;
   ${(props) =>
     props.active &&
@@ -45,7 +46,7 @@ const StyledMarker = styled.span`
     `}
 `;
 
-export default function FlatMap({ locations, index }) {
+export default function FlatMap({ locations, index, setActiveIndex }) {
   const normalizeCords = (cords) => {
     const sides = {
       top: 51.020666012558124,
@@ -60,7 +61,6 @@ export default function FlatMap({ locations, index }) {
         ((sides.left - cords.longitude) / (sides.left - sides.right)) * 100,
     };
   };
-
   return (
     <StyledContainer>
       {/* <Czech  /> */}
@@ -76,6 +76,10 @@ export default function FlatMap({ locations, index }) {
               }}
               key={i}
               active={i == index || index == null}
+              onClick={() => {
+                console.log(i);
+                setActiveIndex(i);
+              }}
             ></StyledMarker>
           );
         })}

@@ -7,6 +7,7 @@ import overlay from "../../assets/imgs/overlay.png";
 import { COLOR } from "../../pages/_app";
 import ScrollIcon from "../../assets/svgs/ScrollIcon";
 import { PrismicNextImage } from "@prismicio/next";
+import { Fade } from "react-reveal";
 /**
  * @typedef {import("@prismicio/client").Content.WelcomeSlice} WelcomeSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<WelcomeSlice>} WelcomeProps
@@ -110,20 +111,26 @@ const Welcome = ({ slice }) => {
       />
       <StyledVideoOverlay />
       <StyledLandingContainer>
-        <PrismicRichText field={slice.primary.title} />
+        <Fade bottom>
+          <PrismicRichText field={slice.primary.title} />
+        </Fade>
         <StyledTypeAnimation>
-          <TypeAnimation
-            repeat={Infinity}
-            sequence={slice.items
-              .map((quote) => {
-                return [prismicH.asText(quote.quote), 2000];
-              })
-              .flatMap((e) => e)}
-          />
+          <Fade bottom>
+            <TypeAnimation
+              repeat={Infinity}
+              sequence={slice.items
+                .map((quote) => {
+                  return [prismicH.asText(quote.quote), 2000];
+                })
+                .flatMap((e) => e)}
+            />
+          </Fade>
         </StyledTypeAnimation>
-        <StyledImageContainer>
-          <PrismicNextImage field={slice.primary?.image} />
-        </StyledImageContainer>
+        <Fade bottom>
+          <StyledImageContainer>
+            <PrismicNextImage field={slice.primary?.image} />
+          </StyledImageContainer>
+        </Fade>
       </StyledLandingContainer>
       <StylecScrollContainer>
         <ScrollIcon />

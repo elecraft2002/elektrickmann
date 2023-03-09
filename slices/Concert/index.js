@@ -6,6 +6,7 @@ import * as prismicH from "@prismicio/helpers";
 import { COLOR } from "../../pages/_app";
 import Button from "../../components/Button";
 import { PrismicNextImage } from "@prismicio/next";
+import { Fade } from "react-reveal";
 
 const StyledConcerts = styled.section`
   color: ${COLOR.light};
@@ -72,7 +73,7 @@ const StyledArticleContainer = styled.article`
     props.active &&
     css`
       background: rgba(255, 255, 255, 0.1);
-      border:1px solid ${COLOR.light};
+      border: 1px solid ${COLOR.light};
     `}
 `;
 
@@ -119,11 +120,15 @@ const Concert = ({ slice }) => {
           <FlatMap
             index={activeIndex}
             locations={slice.items.map((location) => location.concert_location)}
+            setActiveIndex={setActiveIndex}
           />
         </StyledViewerContainer>
         <StyledViewerContainer>
           {slice.primary.title && (
-            <PrismicRichText field={slice.primary.title} />
+            <Fade bottom>
+              {" "}
+              <PrismicRichText field={slice.primary.title} />
+            </Fade>
           )}
           <StyledList>
             {slice.items.map((concert, i) => {

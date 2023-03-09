@@ -93,13 +93,12 @@ const StylecScrollContainer = styled.span`
   top: calc(100% - 4rem);
 `;
 const StyledImageContainer = styled.div`
-  width: 30vw;  
+  width: 30vw;
   max-width: 300px;
   margin: 2rem auto 0 auto;
 `;
 
 const Welcome = ({ slice }) => {
-  console.log(slice);
   return (
     <StyledLanding>
       <StyledVideo

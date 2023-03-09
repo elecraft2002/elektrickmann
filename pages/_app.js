@@ -43,12 +43,7 @@ const StyledHeading4 = styled.h4`
 `;
 const richTextComponents = {
   heading1: ({ children }) => <StyledHeading1>{children}</StyledHeading1>,
-  heading2: ({ children }) => (
-    <StyledHeading2 >
-      {children}
-    </StyledHeading2>
-
-  ),
+  heading2: ({ children }) => <StyledHeading2>{children}</StyledHeading2>,
   heading3: ({ children }) => (
     <Heading as="h4" size="xl" className="mb-7 last:mb-0">
       {children}

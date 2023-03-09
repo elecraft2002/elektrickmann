@@ -239,6 +239,17 @@ interface SettingsDocumentData {
      */
     description: prismicT.RichTextField;
     /**
+     * Keywords field in *Settings*
+     *
+     * - **Field Type**: Rich Text
+     * - **Placeholder**: *None*
+     * - **API ID Path**: settings.keywords
+     * - **Tab**: Main
+     * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+     *
+     */
+    keywords: prismicT.RichTextField;
+    /**
      * Profile Picture field in *Settings*
      *
      * - **Field Type**: Image

@@ -23,6 +23,15 @@
           "single": "paragraph"
         }
       },
+      "keywords": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Keywords",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
       "profilePicture": {
         "type": "Image",
         "config": {

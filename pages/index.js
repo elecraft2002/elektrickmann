@@ -60,6 +60,8 @@ const Index = ({ navigation, settings, page }) => {
           type="image/x-icon"
           href={settings.data.profilePicture.Icon.url}
         ></link>
+        <meta name="description" content={prismicH.asText(settings.data.description)}/>
+        <meta name="keywords" content={prismicH.asText(settings.data.keywords)}/>
       </Head>
       <BackgroundParralax>
         <SliceZone slices={page.data.slices} components={components} />
@@ -85,7 +87,7 @@ export async function getStaticProps({ previewData }) {
   const settings = await client.getSingle("settings");
   // const response = await fetch(`${process.env.BASE_FETCH_URL}/api/eshop`);
   // const data = await response.json();
-  // 
+  //
   return {
     props: {
       page,

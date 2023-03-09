@@ -45,6 +45,12 @@
           "patternType": "HEADING",
           "blocks": 1
         }
+      },
+      "keywords": {
+        "config": {
+          "patternType": "PARAGRAPH",
+          "blocks": 1
+        }
       }
     },
     "quotes": {

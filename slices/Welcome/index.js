@@ -6,6 +6,7 @@ import styled, { keyframes } from "styled-components";
 import overlay from "../../assets/imgs/overlay.png";
 import { COLOR } from "../../pages/_app";
 import ScrollIcon from "../../assets/svgs/ScrollIcon";
+import { PrismicNextImage } from "@prismicio/next";
 /**
  * @typedef {import("@prismicio/client").Content.WelcomeSlice} WelcomeSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<WelcomeSlice>} WelcomeProps
@@ -91,7 +92,14 @@ const StylecScrollContainer = styled.span`
   left: 50vw;
   top: calc(100% - 4rem);
 `;
+const StyledImageContainer = styled.div`
+  width: 30vw;  
+  max-width: 300px;
+  margin: 2rem auto 0 auto;
+`;
+
 const Welcome = ({ slice }) => {
+  console.log(slice);
   return (
     <StyledLanding>
       <StyledVideo
@@ -114,6 +122,9 @@ const Welcome = ({ slice }) => {
               .flatMap((e) => e)}
           />
         </StyledTypeAnimation>
+        <StyledImageContainer>
+          <PrismicNextImage field={slice.primary?.image} />
+        </StyledImageContainer>
       </StyledLandingContainer>
       <StylecScrollContainer>
         <ScrollIcon />

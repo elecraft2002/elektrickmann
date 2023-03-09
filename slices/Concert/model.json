@@ -57,7 +57,13 @@
           "config": {
             "label": "Concert Image",
             "constraint": {},
-            "thumbnails": []
+            "thumbnails": [
+              {
+                "name": "small",
+                "width": null,
+                "height": 300
+              }
+            ]
           }
         },
         "concert_description": {

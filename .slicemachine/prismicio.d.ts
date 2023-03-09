@@ -395,7 +395,7 @@ export interface ConcertSliceDefaultItem {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    concert_image: prismicT.ImageField<never>;
+    concert_image: prismicT.ImageField<"small">;
     /**
      * Concert Description field in *Concert → Items*
      *
@@ -513,7 +513,7 @@ export interface EshopSliceDefaultItem {
      * - **Documentation**: https://prismic.io/docs/core-concepts/image
      *
      */
-    product_image: prismicT.ImageField<never>;
+    product_image: prismicT.ImageField<"smaller">;
 }
 /**
  * Default variation for Eshop Slice

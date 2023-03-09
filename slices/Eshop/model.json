@@ -44,7 +44,13 @@
           "config": {
             "label": "Product Image",
             "constraint": {},
-            "thumbnails": []
+            "thumbnails": [
+              {
+                "name": "smaller",
+                "width": 300,
+                "height": null
+              }
+            ]
           }
         }
       },

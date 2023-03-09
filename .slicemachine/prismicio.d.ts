@@ -820,6 +820,16 @@ interface WelcomeSliceDefaultPrimary {
      *
      */
     background_video: prismicT.LinkToMediaField;
+    /**
+     * Image field in *Welcome → Primary*
+     *
+     * - **Field Type**: Image
+     * - **Placeholder**: *None*
+     * - **API ID Path**: welcome.primary.image
+     * - **Documentation**: https://prismic.io/docs/core-concepts/image
+     *
+     */
+    image: prismicT.ImageField<never>;
 }
 /**
  * Item in Welcome → Items

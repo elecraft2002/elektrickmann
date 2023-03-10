@@ -38,6 +38,7 @@ const StledImage = styled(PrismicNextImage)`
 `;
 const StyledText = styled.span`
   font-weight: 500;
+  margin:1rem;
 `;
 const Item = (props) => {
   return (

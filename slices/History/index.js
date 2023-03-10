@@ -5,6 +5,7 @@ import { COLOR } from "../../pages/_app";
 import * as prismicH from "@prismicio/helpers";
 import { PrismicNextImage } from "@prismicio/next";
 import { Fade } from "react-reveal";
+import replaceHeading from "../../assets/functions/replaceH1";
 
 const StyledSection = styled.section`
   color: ${COLOR.light};
@@ -164,6 +165,7 @@ const closestIndex = (num, arr) => {
   return index;
 };
 const History = ({ slice }) => {
+  slice = replaceHeading(slice);
   // const handleResize = () => {
   //   setWidth(window.innerWidth);
   // };

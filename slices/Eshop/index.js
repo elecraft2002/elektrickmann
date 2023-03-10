@@ -5,6 +5,7 @@ import { COLOR } from "../../pages/_app";
 import { PrismicNextImage } from "@prismicio/next";
 import Button from "../../components/Button";
 import { Fade } from "react-reveal";
+import replaceHeading from "../../assets/functions/replaceH1";
 
 const StyledSection = styled.section`
   color: ${COLOR.light};
@@ -39,7 +40,6 @@ const StyledText = styled.span`
   font-weight: 500;
 `;
 const Item = (props) => {
-  
   return (
     <Fade>
       <StyledItemContainer>
@@ -63,10 +63,14 @@ const Item = (props) => {
  * @param { EshopProps }
  */
 const Eshop = ({ slice }) => {
+  slice = replaceHeading(slice);
   return (
     <StyledSection id={"eshop"}>
       <span>
-       <Fade bottom> <PrismicRichText field={slice.primary.title} /></Fade>
+        <Fade bottom>
+          {" "}
+          <PrismicRichText field={slice.primary.title} />
+        </Fade>
       </span>
       <StyledItemList>
         {slice?.items?.map((item, i) => (

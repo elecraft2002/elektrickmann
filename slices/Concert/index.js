@@ -7,6 +7,7 @@ import { COLOR } from "../../pages/_app";
 import Button from "../../components/Button";
 import { PrismicNextImage } from "@prismicio/next";
 import { Fade } from "react-reveal";
+import replaceHeading from "../../assets/functions/replaceH1";
 
 const StyledConcerts = styled.section`
   color: ${COLOR.light};
@@ -111,6 +112,8 @@ const ConcertSection = ({ setActiveIndex, activeIndex, concert, index }) => {
 };
 
 const Concert = ({ slice }) => {
+  slice = replaceHeading(slice);
+
   const [activeIndex, setActiveIndex] = useState(null);
   return (
     <StyledConcerts id="concerts">

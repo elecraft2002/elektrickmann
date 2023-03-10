@@ -89,7 +89,7 @@ const ConcertSection = ({ setActiveIndex, activeIndex, concert, index }) => {
           }}
         >
           <time dateTime={date}>
-            {date.getUTCDate()}.{date.getMonth()}.{date.getFullYear()}
+            {date.getUTCDate()}.{date.getMonth()+1}.{date.getFullYear()}
           </time>
           <PrismicRichText field={concert.concert_name} />
           <Button primary>

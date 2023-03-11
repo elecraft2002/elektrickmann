@@ -77,8 +77,7 @@ export default function FlatMap({ locations, index, setActiveIndex }) {
               key={i}
               active={i == index || index == null}
               onClick={() => {
-                console.log(i);
-                setActiveIndex(i);
+                setActiveIndex(i === index ? null : i);
               }}
             ></StyledMarker>
           );

@@ -121,6 +121,7 @@ const StyledInvisibleButton = styled.div`
   height: 100vh;
   backdrop-filter: blur(5px);
 `;
+
 export const Header = ({
   withDivider = true,
   withProfile = true,
@@ -204,7 +205,10 @@ export const Header = ({
               {navigation.data.links.map((link, i) => {
                 return (
                   <StyledLi key={i}>
-                    <StyledLink 
+                    <StyledLink
+                      onClick={() => {
+                        setOpenState(false);
+                      }}
                       href={prismicH.asText(link.link)}
                       scroll={false}
                     >

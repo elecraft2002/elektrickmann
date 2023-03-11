@@ -134,7 +134,7 @@ const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
         <div>
           {date && (
             <time dateTime={date}>
-              {date.getUTCDate()}.{date.getMonth()}.{date.getFullYear()}
+              {date.getUTCDate()}.{date.getMonth()+1}.{date.getFullYear()}
             </time>
           )}
           <PrismicRichText field={item.title} />

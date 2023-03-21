@@ -5,6 +5,7 @@ import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import { Heading } from "../components/Heading";
 
+import { GoogleAnalytics } from "nextjs-google-analytics";
 import "../styles/globals.css";
 import styled from "styled-components";
 // import "../assets/font/HauntAOE.ttf"
@@ -93,6 +94,7 @@ export default function App({ Component, pageProps }) {
     >
       <PrismicPreview repositoryName={repositoryName}>
         <Component {...pageProps} />
+        <GoogleAnalytics trackPageViews />
       </PrismicPreview>
     </PrismicProvider>
   );

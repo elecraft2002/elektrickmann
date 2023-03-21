@@ -134,7 +134,7 @@ const Item = ({ index, item, setOffsetArray, offset, activeIndex }) => {
         <div>
           {date && (
             <time dateTime={date}>
-              {date.getUTCDate()}.{date.getMonth()+1}.{date.getFullYear()}
+              {date.getUTCDate()}.{date.getMonth() + 1}.{date.getFullYear()}
             </time>
           )}
           <PrismicRichText field={item.title} />
@@ -206,7 +206,11 @@ const History = ({ slice }) => {
     <StyledSection id="history">
       {/* <YearLine year={date} /> */}
       <span className="title">
-        {slice.primary.title && <Fade bottom><PrismicRichText field={slice.primary.title} /></Fade>}
+        {slice.primary.title && (
+          <Fade bottom>
+            <PrismicRichText field={slice.primary.title} />
+          </Fade>
+        )}
       </span>
       <StyledList>
         <StyledDateContainer>

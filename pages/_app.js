@@ -18,7 +18,7 @@ const StyledHeading1 = styled.h1`
     font-size: 4rem;
   }
   @media (min-width: 1000px) {
-    font-size: 6rem;
+    font-size: 6rem ;
   }
 `;
 const StyledHeading2 = styled.h2`
